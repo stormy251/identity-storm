@@ -1,10 +1,17 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import { PageTransition } from 'next-page-transitions';
-
+import { ThemeProvider } from 'styled-components';
 import Loader from '../components/Loader';
 
 const TIMEOUT = 400;
+const theme = {
+  colors: {
+    primary: '#69B3E2',
+    black: '#000000',
+    white: '#ffffff'
+  }
+};
 
 export default class MyApp extends App {
   static async getInitialProps ({ Component, ctx }) {
@@ -21,19 +28,21 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <Container>
-        <PageTransition
-          timeout={TIMEOUT}
-          classNames='page-transition'
-          loadingComponent={<Loader />}
-          loadingDelay={500}
-          loadingTimeout={{
-            enter: TIMEOUT,
-            exit: 0
-          }}
-          loadingClassNames='loading-indicator'
-        >
-          <Component {...pageProps} />
-        </PageTransition>
+        <ThemeProvider theme={theme}>
+          <PageTransition
+            timeout={TIMEOUT}
+            classNames='page-transition'
+            loadingComponent={<Loader />}
+            loadingDelay={500}
+            loadingTimeout={{
+              enter: TIMEOUT,
+              exit: 0
+            }}
+            loadingClassNames='loading-indicator'
+          >
+            <Component {...pageProps} />
+          </PageTransition>
+        </ThemeProvider>
         <style jsx global>{`
           .page-transition-enter {
             opacity: 0;

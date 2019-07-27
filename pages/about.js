@@ -1,51 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
+import TopBarCentered from "../layouts/TopBarCenteredLayout";
+import styled from "styled-components";
 
-class About extends React.Component {
+const Title = styled.h1`
+    color: ${({ theme }) => theme.colors.primary};
+    margin-bottom: 2rem;
+    text-align: center;
+`;
 
-  constructor (props) {
-    super(props);
-    this.state = {
-      loaded: false
-    };
-    this.pageTransitionDelayEnter = true;
-  }
+const AboutPage = () => (
+  <TopBarCentered>
+    <Title>About Page</Title>
+    <Link href='/'>
+      <a className='btn btn-light'>Back Home</a>
+    </Link>
+  </TopBarCentered>
+);
 
-  componentDidMount () {
-    this.timeoutId = setTimeout(() => {
-      this.props.pageTransitionReadyToEnter();
-      this.setState({ loaded: true });
-    }, 2000);
-  }
-
-  componentWillUnmount () {
-    if (this.timeoutId) clearTimeout(this.timeoutId);
-  }
-
-  render () {
-    if (!this.state.loaded) return null;
-    return (
-      <div className='container bg-success page'>
-        <h1>About us</h1>
-        <p>
-          Notice how a loading spinner showed up while my content was loading?
-          Pretty neat, huh?
-        </p>
-        <Link href='/'>
-          <a className='btn btn-light'>Go back home</a>
-        </Link>
-      </div>
-    );
-  }
-}
-
-About.propTypes = {
-  pageTransitionReadyToEnter: PropTypes.func
-};
-
-About.defaultProps = {
-  pageTransitionReadyToEnter: () => {}
-};
-
-export default About;
+export default AboutPage;

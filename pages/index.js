@@ -1,13 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
+import TopBarCentered from "../layouts/TopBarCenteredLayout";
+import styled from "styled-components";
 
-const Index = () => (
-  <div className='container bg-primary page'>
-    <h1>Hello, world!</h1>
+const Title = styled.h1`
+    color: ${({ theme }) => theme.colors.primary};
+    margin-bottom: 2rem;
+    text-align: center;
+`;
+
+const HomePage = () => (
+  <TopBarCentered title="Home">
+    <Title>Home Page</Title>
     <Link href='/about'>
       <a className='btn btn-light'>About us</a>
     </Link>
-  </div>
+  </TopBarCentered>
 );
 
-export default Index;
+export default HomePage;
