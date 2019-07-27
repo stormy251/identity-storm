@@ -4,7 +4,7 @@ import TopBarCentered from "../layouts/TopBarCenteredLayout";
 import styled from "styled-components";
 
 const Title = styled.h1`
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.secondary};
     margin-bottom: 2rem;
     text-align: center;
 `;

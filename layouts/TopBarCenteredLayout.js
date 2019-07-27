@@ -3,6 +3,7 @@ import TopNav, { TopNavHeight } from '../components/TopNav';
 import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ROUTE_TRANSITION_DURATION } from '../pages/_app';
 
 const MainContainer = styled.div`
     box-sizing: border-box;
@@ -39,12 +40,39 @@ export const TopBarCenteredLayout = ({ children, title = 'ToDo-Storm' }) => (
     </Head>
     <MainContainer>
       <TopNav />
-      <ContentContainer>
-        <Card>
+      <ContentContainer className="content-container">
+        <Card className="main-layout-card">
           {children}
         </Card>
       </ContentContainer>
     </MainContainer>
+    <style jsx global>{`
+      .page-transition-enter {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+      }
+      .page-transition-enter-active {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: opacity ${ROUTE_TRANSITION_DURATION}ms, transform ${ROUTE_TRANSITION_DURATION}ms;
+      }
+      .page-transition-exit {
+        opacity: 1;
+      }
+      .page-transition-exit-active {
+        opacity: 0;
+        transition: opacity ${ROUTE_TRANSITION_DURATION}ms;
+      }
+      .loading-indicator-appear,
+      .loading-indicator-enter {
+        opacity: 0;
+      }
+      .loading-indicator-appear-active,
+      .loading-indicator-enter-active {
+        opacity: 1;
+        transition: opacity ${ROUTE_TRANSITION_DURATION}ms;
+      }
+    `}</style>
   </div>
 );
 

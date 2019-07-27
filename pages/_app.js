@@ -4,14 +4,16 @@ import { PageTransition } from 'next-page-transitions';
 import { ThemeProvider } from 'styled-components';
 import Loader from '../components/Loader';
 
-const TIMEOUT = 400;
-const theme = {
+export const THEME = {
   colors: {
-    primary: '#69B3E2',
+    primary: '#647B8B',
+    secondary: '#69B3E2',
     black: '#000000',
     white: '#ffffff'
   }
 };
+
+export const ROUTE_TRANSITION_DURATION = 300;
 
 export default class MyApp extends App {
   static async getInitialProps ({ Component, ctx }) {
@@ -28,14 +30,14 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <Container>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={THEME}>
           <PageTransition
-            timeout={TIMEOUT}
+            timeout={ROUTE_TRANSITION_DURATION}
             classNames='page-transition'
             loadingComponent={<Loader />}
             loadingDelay={500}
             loadingTimeout={{
-              enter: TIMEOUT,
+              enter: ROUTE_TRANSITION_DURATION,
               exit: 0
             }}
             loadingClassNames='loading-indicator'
@@ -43,33 +45,6 @@ export default class MyApp extends App {
             <Component {...pageProps} />
           </PageTransition>
         </ThemeProvider>
-        <style jsx global>{`
-          .page-transition-enter {
-            opacity: 0;
-            transform: translate3d(0, 20px, 0);
-          }
-          .page-transition-enter-active {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-            transition: opacity ${TIMEOUT}ms, transform ${TIMEOUT}ms;
-          }
-          .page-transition-exit {
-            opacity: 1;
-          }
-          .page-transition-exit-active {
-            opacity: 0;
-            transition: opacity ${TIMEOUT}ms;
-          }
-          .loading-indicator-appear,
-          .loading-indicator-enter {
-            opacity: 0;
-          }
-          .loading-indicator-appear-active,
-          .loading-indicator-enter-active {
-            opacity: 1;
-            transition: opacity ${TIMEOUT}ms;
-          }
-        `}</style>
       </Container>
     );
   }
