@@ -1,6 +1,7 @@
-import Head from 'next/head'
+import Head from 'next/head';
 import TopNav, { TopNavHeight } from '../components/TopNav';
-import styled from "styled-components";
+import styled from 'styled-components';
+import React from 'react';
 
 const MainContainer = styled.div`
     box-sizing: border-box;
@@ -8,7 +9,7 @@ const MainContainer = styled.div`
     flex-direction: column;
     height: 100vh;
     width: 100vw;
-`
+`;
 
 const ContentContainer = styled.div`
     align-items: center;
@@ -17,7 +18,7 @@ const ContentContainer = styled.div`
     height: calc(100vh - ${TopNavHeight});
     justify-content: center;
     width: 100vw;
-`
+`;
 
 const Card = styled.div`
     background-color: ${({ theme }) => theme.colors.primary};
@@ -25,22 +26,27 @@ const Card = styled.div`
     border-radius: 0.5rem;
     padding: 1.5rem;
     width: 30rem;
-`
+`;
 
-export default ({ children, title = 'ToDo-Storm' }) => (
-    <div>
+export default class TopBarCentered extends React.Component {
+
+  render ({ children, title = 'ToDo-Storm' }) {
+    return (
+      <div>
         <Head>
-            <title>{title}</title>
-            <meta charSet='utf-8' />
-            <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+          <title>{title}</title>
+          <meta charSet='utf-8' />
+          <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         </Head>
         <MainContainer>
-            <TopNav />
-            <ContentContainer>
-                <Card>
-                    {children}
-                </Card>
-            </ContentContainer>
+          <TopNav />
+          <ContentContainer>
+            <Card>
+              {children}
+            </Card>
+          </ContentContainer>
         </MainContainer>
-    </div>
-)
+      </div>
+    );
+  }
+}

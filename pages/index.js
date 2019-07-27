@@ -1,5 +1,5 @@
-import React from 'react'
-import Link from 'next/link'
+import React from 'react';
+import Link from 'next/link';
 
 const Index = () => (
   <div className='container bg-primary page'>
@@ -8,6 +8,6 @@ const Index = () => (
       <a className='btn btn-light'>About us</a>
     </Link>
   </div>
-)
+);
 
-export default Index
+export default Index;
