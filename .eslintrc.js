@@ -29,6 +29,8 @@ module.exports = {
   },
   rules: {
     semi: ['error', 'always'],
-    indent: ['error', 2]
+    indent: ['error', 2],
+    'object-curly-spacing': 2,
+    'space-before-function-paren': ['error', 'always']
   }
 };
