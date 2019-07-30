@@ -3,10 +3,13 @@ import Link from 'next/link';
 import TopBarCentered from "../layouts/TopBarCenteredLayout";
 import styled from "styled-components";
 import posed from 'react-pose';
+import CardTitle from '../components/CardTitle';
+import Button from '@material-ui/core/Button';
 
 const Box = posed.div({
-  hidden: {opacity: 0},
-  visible: {opacity: 1}
+  init: {scale: 1},
+  hidden: {scale: 0.2},
+  visible: {scale: 1}
 });
 
 const RedSquare = styled.div`
@@ -16,17 +19,9 @@ const RedSquare = styled.div`
   width: 10rem;
 `;
 
-const Title = styled.h1`
-  color: ${({theme}) => theme.colors.secondary};
-  margin-bottom: 2rem;
-  text-align: center;
-`;
-
-const ToggleButton = styled.button`
-  background-color: ${({theme}) => theme.colors.secondary};
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  text-align: center;
+const ToggleButton = styled(Button)`
+  background-color: ${({theme}) => theme.colors.primary};
+  color: ${({theme}) => theme.colors.white};
 `;
 
 const HomePage = function () {
@@ -34,7 +29,7 @@ const HomePage = function () {
 
   return (
     <TopBarCentered title="Home">
-      <Title>Home Page</Title>
+      <CardTitle>Home Page</CardTitle>
       <Box
         pose={isVisible ? 'visible' : 'hidden'}
       >
@@ -42,7 +37,7 @@ const HomePage = function () {
       </Box>
       <ToggleButton onClick={() => setIsVisible(!isVisible)}>Toggle</ToggleButton>
       <Link href='/about'>
-        <a className='btn btn-light'>About us</a>
+        <a>About us</a>
       </Link>
     </TopBarCentered>
   );

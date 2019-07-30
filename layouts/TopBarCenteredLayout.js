@@ -1,9 +1,12 @@
 import Head from 'next/head';
-import TopNav, {TopNavHeight} from '../components/TopNav';
+import {TopNavHeight} from '../components/TopNav';
 import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
 import {FADE_DOWN_PAGE_TRANSITION} from '../lib/PageTransition';
+import {GLOBAL_STYLES} from '../lib/GlobalStyles';
+import MaterialTopNav from "../components/MaterialTopNav";
+import {Paper} from "@material-ui/core";
 
 const MainContainer = styled.div`
     box-sizing: border-box;
@@ -15,6 +18,7 @@ const MainContainer = styled.div`
 
 const ContentContainer = styled.div`
     align-items: center;
+    background-color: ${({theme}) => theme.colors.accentLight};
     box-sizing: border-box;
     display: flex;
     height: calc(100vh - ${TopNavHeight});
@@ -22,10 +26,9 @@ const ContentContainer = styled.div`
     width: 100vw;
 `;
 
-const Card = styled.div`
+const Card = styled(Paper)`
     background-color: ${({theme}) => theme.colors.white};
     box-sizing: border-box;
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
     border-radius: 0.5rem;
     padding: 1.5rem;
     width: 24rem;
@@ -37,16 +40,17 @@ export const TopBarCenteredLayout = ({children, title = 'ToDo-Storm'}) => (
       <title>{title}</title>
       <meta charSet='utf-8' />
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+      {GLOBAL_STYLES}
+      {FADE_DOWN_PAGE_TRANSITION}
     </Head>
     <MainContainer>
-      <TopNav />
-      <ContentContainer className="content-container">
-        <Card className="main-layout-card">
+      <MaterialTopNav />
+      <ContentContainer>
+        <Card elevation={2}>
           {children}
         </Card>
       </ContentContainer>
     </MainContainer>
-    {FADE_DOWN_PAGE_TRANSITION}
   </div>
 );
 
