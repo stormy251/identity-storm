@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import TopBarCentered from "../layouts/TopBarCenteredLayout";
 import styled from "styled-components";
+import Card from '../components/Card';
 
 const Title = styled.h1`
     color: ${({theme}) => theme.colors.secondary};
@@ -10,12 +10,12 @@ const Title = styled.h1`
 `;
 
 const AboutPage = () => (
-  <TopBarCentered>
+  <Card>
     <Title>About Page</Title>
     <Link href='/'>
       <a className='btn btn-light'>Back Home</a>
     </Link>
-  </TopBarCentered>
+  </Card>
 );
 
 export default AboutPage;

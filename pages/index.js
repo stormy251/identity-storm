@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import Link from 'next/link';
-import TopBarCentered from "../layouts/TopBarCenteredLayout";
 import styled from "styled-components";
 import posed from 'react-pose';
+import Card from '../components/Card';
 import CardTitle from '../components/CardTitle';
-import Button from '@material-ui/core/Button';
 
 const Box = posed.div({
   init: {scale: 1},
@@ -19,7 +18,7 @@ const RedSquare = styled.div`
   width: 10rem;
 `;
 
-const ToggleButton = styled(Button)`
+const ToggleButton = styled.button`
   background-color: ${({theme}) => theme.colors.primary};
   color: ${({theme}) => theme.colors.white};
 `;
@@ -28,7 +27,7 @@ const HomePage = function () {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
-    <TopBarCentered title="Home">
+    <Card>
       <CardTitle>Home Page</CardTitle>
       <Box
         pose={isVisible ? 'visible' : 'hidden'}
@@ -39,7 +38,7 @@ const HomePage = function () {
       <Link href='/about'>
         <a>About us</a>
       </Link>
-    </TopBarCentered>
+    </Card>
   );
 };
 
