@@ -28,7 +28,7 @@ const LogoLink = styled.img`
     width: ${TopNavLogoDimension};
 `;
 
-export default class TopNav extends React.Component {
+class TopNav extends React.Component {
 
   render () {
     return (
@@ -40,3 +40,5 @@ export default class TopNav extends React.Component {
     );
   }
 }
+
+export default TopNav;

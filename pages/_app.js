@@ -7,7 +7,7 @@ import {ROUTE_TRANSITION_DURATION} from "../lib/PageTransition";
 import {THEME} from "../lib/Theme";
 import TopBarCenteredLayout from '../layouts/TopBarCenteredLayout';
 
-export default class MyApp extends App {
+class IdentityStormApp extends App {
   static async getInitialProps ({Component, ctx}) {
     let pageProps = {};
 
@@ -15,6 +15,7 @@ export default class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
 
+    // This will be used as the key for each page such that the page-transition knows when the page has changed.
     pageProps.keyRoutePath = ctx.asPath;
 
     return {pageProps};
@@ -45,3 +46,5 @@ export default class MyApp extends App {
     );
   }
 }
+
+export default IdentityStormApp;
