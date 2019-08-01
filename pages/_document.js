@@ -16,6 +16,12 @@ export default class MyDocument extends Document {
             content='initial-scale=1.0, width=device-width'
           />
           <style>{`
+            html {
+              font-size: 16px;
+            }
+            body {
+              margin: 0;
+            }
             .page {
               height: 100vh;
             }
