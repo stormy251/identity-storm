@@ -6,9 +6,9 @@ import Card from '../components/Card';
 import CardTitle from '../components/CardTitle';
 
 const Box = posed.div({
-  init: {scale: 1},
-  hidden: {scale: 0.2},
-  visible: {scale: 1}
+  init: {opacity: 1},
+  hidden: {opacity: 0},
+  visible: {opacity: 1}
 });
 
 const RedSquare = styled.div`
