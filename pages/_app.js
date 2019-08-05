@@ -4,7 +4,7 @@ import {PageTransition} from 'next-page-transitions';
 import {ThemeProvider} from 'styled-components';
 import Loader from '../components/Loader';
 import {ROUTE_TRANSITION_DURATION} from "../lib/PageTransition";
-import {THEME} from "../lib/Theme";
+import THEME from "../lib/theme";
 import TopBarCenteredLayout from '../layouts/TopBarCenteredLayout';
 
 class IdentityStormApp extends App {
