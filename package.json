@@ -2,7 +2,7 @@
   "name": "with-next-page-transitions",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
+    "dev": "next -H local.flickr.com -p 8080",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix --ext .js pages components layouts"

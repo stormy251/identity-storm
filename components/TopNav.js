@@ -8,12 +8,12 @@ export const TopNavHeight = '3rem';
 export const TopNavLogoDimension = '1.5rem';
 
 const NavContainer = styled.header`
-    background-color: ${({theme}) => theme.colors.primary};
+    background-color: ${({theme}) => theme.colors.black};
     display: flex;
     height: ${TopNavHeight};
     justify-content: center;
     width: 100vw;
-    color: ${({theme}) => theme.colors.secondary};
+    color: ${({theme}) => theme.colors.white};
 `;
 
 const ContentContainer = styled.div`

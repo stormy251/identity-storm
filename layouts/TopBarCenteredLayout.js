@@ -13,7 +13,7 @@ const MainContainer = styled.div`
 
 const ContentContainer = styled.div`
     align-items: center;
-    background-color: ${({theme}) => theme.colors.accentLight};
+    background-color: ${({theme}) => theme.colors.greyPage};
     box-sizing: border-box;
     display: flex;
     height: calc(100vh - ${TopNavHeight});

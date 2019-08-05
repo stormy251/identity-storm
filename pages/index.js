@@ -19,7 +19,7 @@ const RedSquare = styled.div`
 `;
 
 const ToggleButton = styled.button`
-  background-color: ${({theme}) => theme.colors.primary};
+  background-color: ${({theme}) => theme.colors.blue};
   color: ${({theme}) => theme.colors.white};
 `;
 
