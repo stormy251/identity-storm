@@ -5,7 +5,7 @@ import CardTitle from '../components/CardTitle';
 
 const AboutPage = function () {
   return (
-    <Card key="layout-card">
+    <Card outlined>
       <CardTitle>About Page</CardTitle>
       <Link href='/'>
         <a>Home</a>

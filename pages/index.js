@@ -27,7 +27,7 @@ const HomePage = function () {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
-    <Card key="layout-card">
+    <Card>
       <CardTitle>Home Page</CardTitle>
       <Box
         pose={isVisible ? 'visible' : 'hidden'}
